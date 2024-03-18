@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            background-color: lightgray;
+        }
+        h1{
+            text-align: center;
+            color: crimson;
+        }
+        h2{
+            text-align: center;
+            color: brown;
+
+        }
+        h3{
+            font-size: 30px;
+        }
+        input{
+            padding: 10px;
+        }
+        button{
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO GLORIA TELECOM SERVICE</h1>
+    <h2>PLEASE SELECT YOUR CHOICE OF RECHARGE</h2>
+
+    <div class="mainnet">
+        <select id="net">
+            <option value="">Kindly Select your preffered network</option>
+            <option value="MTN">MTN</option>
+            <option value="GLO">GLO</option>
+            <option value="AIRTEL">AIRTEL</option>
+            <option value="9MOBILE">9MOBILE</option>
+        </select>
+    </div>
+    <br>
+    <select id="airtimeAmount">
+        <option value="0">Amounts</option>
+        <option value="1000">1000</option>
+        <option value="500">500</option>
+        <option value="200">200</option>
+        <option value="100">100</option>
+    </select><br><br>
+
+    <button onclick="generate()">Generate Pin</button><br><br>
+    <h3 id="myH3"></h3><br><br>
+
+    <input type="text" id="myInput">
+    <button onclick="recharge()">Load Airtime</button>
+</body>
+</html>
+
+
+<script>
+
+    function generate(){
+        let gen = Math.floor(Math.random() * 1000000000000000) 
+        console.log(gen);
+
+        document.getElementById("myH3").innerHTML = gen
+    }
+
+    function recharge(){
+        let nets = document.getElementById("net").value;
+        let airtimeAmount = document.getElementById("airtimeAmount").value;
+        let inp = document.getElementById("myInput").value;
+        let inp2 = inp.startsWith("*311*");
+        let inp3 = inp.endsWith("#");
+
+
+        if(inp2 & inp3 == true){
+            alert(`You have successfully recharged ${nets} worth of ${airtimeAmount}.`);
+        }else{
+            alert("Invalid code");
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
